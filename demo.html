@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sakthi Swarup - Portfolio</title>
+  <meta name="description" content="Portfolio website for Sakthi Swarup V K" />
+  <style>
+      html {
+    scroll-behavior: smooth;
+  }
+  #home {
+    background: url('1739405555394.jpeg') no-repeat center center;
+    background-size: cover;
+    height: 50vh; /* Adjust height as needed */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white; /* Adjust text color for better visibility */
+  }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+    a {
+      text-decoration: none;
+      color: #007acc;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    ul {
+      list-style: disc;
+    }
+    ul li::marker {
+    font-size: 1.5em; /* Increases bullet size */
+    color: black; /* Ensures visibility */
+  }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    /* Navigation */
+    header {
+      background: #f4f4f4;
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+    }
+    nav ul li {
+        list-style: none;
+      margin: 0 15px;
+    }
+    nav ul li a {
+      font-weight: bold;
+      font-size: 1rem;
+    }
+    /* Sections */
+    section {
+      padding: 60px 20px;
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+    section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2rem;
+      color: #007acc;
+    }
+    #about p {
+      max-width: 1000px;
+      margin: 0 auto 20px auto;
+      text-align: justify;
+    }
+    /* Resume Section */
+    .resume-item {
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .resume-item h4 {
+      color: #007acc;
+      margin-bottom: 10px;
+    }
+    .resume-item span {
+      display: block;
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .resume-item ul {
+      margin-left: 20px;
+    }
+    /* Footer */
+    footer {
+      background: #f4f4f4;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    #home .btn:hover {
+    background: #f6f7f8;
+  }
+
+  </style>
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+    
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#resume">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#research">Research</li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home">
+    <div class="hero" style="text-align:center;">
+      <img src="shakti Swaroop 3.jpg" alt="Sakthi Swarup" width="150" height="150" style="border-radius: 50%;"/>
+      <h1>Sakthi Swarup V K</h1>
+      <p>Data Scientist | Machine Learning Enthusiast</p>
+      <a href="#education" class="btn">View My Profile |</a>
+      <a href="SakthiSwarup_Resume 2.docx" download class="btn">Download Resume</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I am a passionate data scientist with a strong background in machine learning, artificial intelligence, and data analytics. 
+      With a Master's degree in Data Science from the University of Massachusetts Dartmouth and a Bachelor's in Information Science from Jain University, 
+      I have developed a solid foundation in statistical analysis, predictive modeling, and big data processing.
+    </p>
+    <p>
+      My professional journey includes working as an Associate Software Engineer at Carelon Global Solutions, where I developed automation tools that optimized efficiency and improved system performance. 
+      I also served as a Graduate Student Assistant at UMass Dartmouth, contributing to research initiatives and helping develop data-driven solutions for complex problems.
+    </p>
+    <p>
+      Throughout my career, I have worked on diverse projects, from real-time cryptocurrency price prediction using LSTM and ARIMA to detecting credit card fraud with machine learning models. 
+      I am also passionate about cybersecurity and have authored a research paper on an AI-driven cybersecurity response system for IoT devices, 
+      which explores adaptive anomaly detection for enhanced threat mitigation.
+    </p>
+    <p>
+      My technical skills include expertise in Python, SQL, Machine Learning, Deep Learning, and Data Visualization using tools like Power BI and Tableau. 
+      I am also proficient in cloud computing, having deployed scalable data pipelines and models on AWS and Azure.
+    </p>
+    <p>
+      I thrive in collaborative environments and enjoy mentoring aspiring data scientists. 
+      As an active member of the Big Data Club, I lead workshops and guide students in hands-on machine learning projects.
+    </p>
+    <p>
+      I am always eager to explore innovative AI-driven solutions, collaborate on exciting projects, and contribute to the advancement of data science. 
+      If you’re interested in working together or discussing research opportunities, feel free to reach out!
+    </p>
+
+  </section>
+  
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2>Education</h2>
+      
+        <div class="resume-item">
+          <h4>Master of Science in Data Science</h4>
+          <span>University of Massachusetts Dartmouth | Expected May 2025</span>
+          <p>
+            The program focuses on machine learning, big data analytics, artificial intelligence, and cloud computing, equipping students with advanced analytical and problem-solving skills.
+          </p>
+          <h5>Relevant Coursework:</h5>
+          <ul>
+            <li>Advanced Machine Learning</li>
+            <li>Big Data & Cloud Computing</li>
+            <li>Statistical Data Analysis</li>
+            <li>Natural Language Processing</li>
+            <li>Deep Learning and AI Applications</li>
+          </ul>
+          <h5>Key Projects & Research:</h5>
+          <ul>
+            <li>Crypto Prediction Model: Developed a real-time cryptocurrency forecasting system using LSTM and ARIMA models.</li>
+            <li>Police Shootings Analysis: Analyzed U.S. fatal police shootings using clustering and regression techniques, proposing data-driven policy changes.</li>
+          </ul>
+          <h5>Extracurricular Activities:</h5>
+          <ul>
+            <li>Mentor & Active Member of Big Data Club</li>
+            <li>Led workshops on machine learning and data visualization</li>
+          </ul>
+        </div>
+      
+        <div class="resume-item">
+          <h4>Bachelor of Technology in Information Science</h4>
+          <span>Jain University, Bangalore, India | Aug 2021</span>
+          <p>
+            Focused on software development, data structures, web technologies, and database management with hands-on experience in full-stack development and data engineering.
+          </p>
+          <h5>Relevant Coursework:</h5>
+          <ul>
+            <li>Database Management Systems (DBMS)</li>
+            <li>Object-Oriented Programming (OOP) in Java</li>
+            <li>Software Engineering & Agile Development</li>
+            <li>Cloud & Distributed Computing</li>
+            <li>Data Structures & Algorithms</li>
+          </ul>
+          <h5>Capstone Project:</h5>
+          <ul>
+            <li>Multimedia Streaming & Sharing App: Developed an Android application to share and stream multimedia content between devices.</li>
+          </ul>
+          <h5>Internship:</h5>
+          <ul>
+            <li>Interned at Knolskape Solutions to gain exposure to web technologies and portal design.</li>
+          </ul>
+        </div>
+      </section>
+      
+
+
+  <!-- Experience Section -->
+  <section id="resume">
+    <h2>Experience</h2>
+
+    <div class="resume-item">
+      <h4>Graduate Student Assistant</h4>
+      <span>University of Massachusetts Dartmouth | Sept 2024 - Dec 2024</span>
+      <p>
+        Provided research and technical support for faculty and students, applying data science techniques to optimize workflows and enhance study efficiency.
+      </p>
+      <ul>
+        <li>Conducted data collection, literature reviews, and statistical analysis for various research projects.</li>
+        <li>Implemented data visualization dashboards to interpret research insights effectively.</li>
+        <li>Automated repetitive data processing tasks, improving efficiency and accuracy.</li>
+        <li>Assisted in troubleshooting and optimizing machine learning models used in academic research.</li>
+        <li>Enhanced classroom experiences by providing technical support for software tools and data analytics applications.</li>
+      </ul>
+    </div>
+
+    <div class="resume-item">
+        <h4>Associate Software Engineer</h4>
+        <span>Carelon Global Solutions | Sept 2021 - Aug 2023</span>
+        <p>
+          Played a key role in the development and maintenance of healthcare automation solutions for Elevance Health, one of the largest health technology firms in the U.S. 
+          Led a team of five engineers, ensuring smooth project execution, task delegation, and delivery of high-impact software solutions in a fast-paced environment.
+        </p>
+        <ul>
+          <li>Managed a team of 5 software engineers, ensuring seamless collaboration, code reviews, and timely delivery of automation solutions.</li>
+          <li>Developed an automation tool to streamline health insurance enrollment verification, reducing processing time by 40% and improving efficiency.</li>
+          <li>Optimized data integrity checks and transaction validation mechanisms, achieving 99.9% accuracy in insurance enrollment data.</li>
+          <li>Designed and implemented Python-based batch processing scripts, automating high-volume data processing and saving 200+ work hours per month.</li>
+          <li>Led high-performance regression testing initiatives, ensuring application stability across multiple software releases and reducing system crashes by 35%.</li>
+          <li>Received multiple Impact Awards for delivering high-quality software solutions that improved efficiency and reduced system errors.</li>
+          <li>Collaborated with cross-functional teams including developers, testers, and business analysts to refine project requirements and align software improvements with business goals.</li>
+          <li>Integrated API-driven automation for real-time data synchronization between healthcare providers and insurance systems, improving operational workflows.</li>
+          <li>Assisted in migrating legacy healthcare applications to cloud-based solutions, enhancing scalability and system performance.</li>
+          <li>Ensured compliance with HIPAA regulations by implementing secure data processing and encryption techniques.</li>
+          <li>Coordinated with senior leadership and stakeholders, presenting project updates, tracking milestones, and ensuring project timelines were met.</li>
+          <li>Mentored junior engineers, providing technical guidance, best coding practices, and performance reviews to enhance team productivity.</li>
+        </ul>
+      </div>
+      
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="resume-item">
+        <h4>Machine Learning and Real-Time Data: A Fusion for Crypto Predictions</h4>
+        <span>UMass Dartmouth | Sept 2024 - Present</span>
+        <p>
+          Developed a real-time cryptocurrency price prediction system integrating machine learning models with live market data. 
+          The project aims to enhance trading decision-making by providing accurate trend predictions through advanced AI techniques.
+        </p>
+        <h5>Key Features:</h5>
+        <ul>
+          <li>Integrated real-time market data using the CoinGecko API.</li>
+          <li>Implemented LSTM, ARIMA, and Decision Trees for accurate price forecasting.</li>
+          <li>Engineered features such as moving averages, volatility indicators, and sentiment analysis.</li>
+          <li>Developed an interactive dashboard using React and Chart.js for dynamic data visualization.</li>
+          <li>Deployed on AWS to ensure scalability and high availability.</li>
+        </ul>
+        <h5>Results & Impact:</h5>
+        <ul>
+          <li>LSTM model outperformed traditional methods in predicting volatile market movements.</li>
+          <li>Successfully identified market trends for Bitcoin, Ethereum, and Cardano.</li>
+          <li>Provided actionable insights to traders for better decision-making.</li>
+        </ul>
+        <h5>Future Enhancements:</h5>
+        <ul>
+          <li>Integrating sentiment analysis from Twitter and Reddit to refine predictions.</li>
+          <li>Expanding the system to predict other asset classes, including stocks and forex.</li>
+          <li>Incorporating ensemble learning techniques for improved model accuracy.</li>
+        </ul>
+        <h5>Live Project:</h5>
+        <p>
+          Explore the live demo of this project: 
+          <a href="https://cryptocap-lovat.vercel.app/" target="_blank">Click here to view</a>
+        </p>
+      </div>
+      <div class="resume-item">
+        <h4>From Data to Insights: Examining Fatal Police Shootings in the U.S.</h4>
+        <span>UMass Dartmouth | Sept 2023 - Dec 2024</span>
+        <p>
+          This project analyzes fatal police shootings in the United States, identifying patterns and risk factors based on demographic, geographic, and situational variables. 
+          Using K-Means Clustering and Logistic Regression, the study explores racial and gender disparities, geographic trends, and predictive modeling of incident scenarios.
+        </p>
+        <h5>Key Findings:</h5>
+        <ul>
+          <li>Higher incidence among white, black, and Hispanic populations, with males being disproportionately affected.</li>
+          <li>Geographic concentration in urban areas such as Los Angeles, Houston, and New York, with lower occurrences in rural regions.</li>
+          <li>K-Means clustering identified spatial hotspots in California, Texas, and Florida where shootings are more frequent.</li>
+          <li>Logistic Regression predicted gun-related incidents accurately but struggled with cases involving mental illness or body camera presence.</li>
+        </ul>
+        <h5>Data Sources & Tools:</h5>
+        <ul>
+          <li>Dataset from The Washington Post covering fatal police shootings since 2015.</li>
+          <li>Geospatial analysis using Folium for mapping incident locations.</li>
+          <li>Machine Learning models implemented in Python (Scikit-learn, Pandas, Matplotlib, Seaborn).</li>
+        </ul>
+        <h5>GitHub Repository:</h5>
+        <p>
+          Explore the source code and analysis: 
+          <a href="https://github.com/siddharth00914/Fatal_police_shootings" target="_blank">View on GitHub</a>
+        </p>
+      </div>
+
+        <div class="resume-item">
+          <h4>Global Trends in Data Employment: A Visual Overview</h4>
+          <span>UMass Dartmouth | Sept 2024 - Present</span>
+          <p>
+            Analyzed global trends in data science employment, focusing on salary structures, job roles, and experience levels.
+            Developed interactive visualizations using D3.js, enabling users to explore job market trends dynamically.
+          </p>
+          <h5>Key Features:</h5>
+          <ul>
+            <li>Choropleth Maps displaying job market trends from 2021-2023.</li>
+            <li>Bar graphs comparing salaries based on company size, experience, and work settings.</li>
+            <li>Heatmaps, line graphs, and parallel plots showcasing workforce distribution.</li>
+            <li>Data preprocessing and analysis using Python (Pandas, Matplotlib, Seaborn).</li>
+          </ul>
+          <h5>Results & Insights:</h5>
+          <ul>
+            <li>Higher salaries correlate with larger companies and remote work settings.</li>
+            <li>Significant salary gaps exist between entry-level and senior-level positions.</li>
+            <li>Trends indicate growing demand for data professionals in emerging markets.</li>
+          </ul>
+          <h5>Live Project:</h5>
+          <p>
+            Explore the interactive Data Employment Dashboard here:  
+            <a href="https://sakthiswarup18.github.io/Data-Visualization/Dashboard.html" target="_blank">Click here to view</a>
+          </p>
+        </div>
+
+        <div class="resume-item">
+            <h4>Detecting Credit Card Fraud Using Machine Learning</h4>
+            <span>UMass Dartmouth | Sept 2024 - Present</span>
+            <p>
+              This project focuses on developing and evaluating machine learning models to detect fraudulent credit card transactions. 
+              Using LightGBM, XGBoost, CatBoost, and Random Forest, we built a robust fraud detection system capable of identifying 
+              fraudulent transactions with high accuracy.
+            </p>
+            <h5>Key Features:</h5>
+            <ul>
+              <li>Dataset of 284,807 transactions, with only 0.17% fraudulent cases.</li>
+              <li>Feature engineering techniques to enhance model accuracy.</li>
+              <li>Exploratory Data Analysis (EDA) to uncover hidden patterns.</li>
+              <li>Implementation of multiple classifiers (LightGBM, XGBoost, CatBoost, Random Forest).</li>
+              <li>Performance evaluation using AUC score and confusion matrix.</li>
+            </ul>
+            <h5>Results & Impact:</h5>
+            <ul>
+              <li>LightGBM achieved a test AUC of 0.93, outperforming other models.</li>
+              <li>XGBoost delivered a validation AUC of 0.984, indicating strong predictive power.</li>
+              <li>Feature importance analysis identified V14, V10, V12, V17, and Amount as key predictors.</li>
+              <li>Developed an interpretable fraud detection system for real-world applications.</li>
+            </ul>
+            <h5>Future Enhancements:</h5>
+            <ul>
+              <li>Integration of real-time fraud detection for live transactions.</li>
+              <li>Incorporating deep learning techniques for improved classification.</li>
+              <li>Optimization of feature selection using autoencoders.</li>
+            </ul>
+            <h5>GitHub Repository:</h5>
+            <p>
+              Explore the source code and analysis: 
+              <a href="YOUR_GITHUB_REPO_LINK" target="_blank">View on GitHub</a>
+            </p>
+          </div>
+
+          <div class="resume-item">
+            <h4>Scalable Fitness Data Exploration</h4>
+            <span>UMass Dartmouth | Sept 2024 - Present</span>
+            <p>
+              This project focuses on analyzing large volumes of fitness tracker data to uncover meaningful health insights using cloud-based technologies.
+              By leveraging Microsoft Azure, we processed and visualized fitness data to help users understand physical activity patterns, sleep quality, and overall wellness.
+            </p>
+            <h5>Key Features:</h5>
+            <ul>
+              <li>Data ingestion and storage using Azure Blob Storage.</li>
+              <li>Data preprocessing and ETL pipelines implemented in Azure Data Factory and Azure Databricks.</li>
+              <li>Exploratory Data Analysis (EDA) using Python and Power BI for insights into fitness trends.</li>
+              <li>Machine learning models deployed via Azure Machine Learning to predict future health trends.</li>
+              <li>Interactive Power BI dashboards for visualizing key metrics like steps, calories burned, and sleep patterns.</li>
+            </ul>
+            <h5>Results & Impact:</h5>
+            <ul>
+              <li>Identified correlations between physical activity and health metrics (sleep quality, heart rate, etc.).</li>
+              <li>Developed a scalable solution for analyzing wearable fitness data.</li>
+              <li>Enabled users to track fitness progress with personalized recommendations.</li>
+            </ul>
+            <h5>Future Enhancements:</h5>
+            <ul>
+              <li>Integrating real-time fitness tracking insights.</li>
+              <li>Enhancing prediction accuracy using deep learning models.</li>
+              <li>Expanding analysis to more wearable devices (Apple Watch, Garmin, etc.).</li>
+            </ul>
+            <h5>GitHub Repository:</h5>
+            <p>
+              Explore the source code and analysis: 
+              <a href="YOUR_GITHUB_REPO_LINK" target="_blank">View on GitHub</a>
+            </p>
+          </div>
+
+          <div class="resume-item">
+            <h4>Creating an Autonomous Agent for Email Management</h4>
+            <span>UMass Dartmouth | Sept 2024 - Present</span>
+            <p>
+              This project focuses on building an autonomous email management system using Auto-GPT. The system automates email-related tasks, including drafting, sending, receiving, and replying to emails, leveraging AI-driven automation.
+            </p>
+            <h5>Key Features:</h5>
+            <ul>
+              <li>Installed and configured Auto-GPT for autonomous email handling.</li>
+              <li>Integrated the email plugin to automate email drafting and responses.</li>
+              <li>Tested sending customized emails with AI-generated content.</li>
+              <li>Implemented automatic email reception and intelligent replies.</li>
+              <li>Developed a workflow to streamline email communication through AI.</li>
+            </ul>
+            <h5>Results & Impact:</h5>
+            <ul>
+              <li>Successfully automated email communication using AI.</li>
+              <li>Reduced manual effort in composing and responding to emails.</li>
+              <li>Demonstrated the capabilities of AI-powered email management systems.</li>
+            </ul>
+            <h5>Future Enhancements:</h5>
+            <ul>
+              <li>Enhancing the AI model for improved email context understanding.</li>
+              <li>Integrating with CRM systems for automated business communications.</li>
+              <li>Expanding support for multiple email accounts and platforms.</li>
+            </ul>
+            <h5>GitHub Repository:</h5>
+            <p>
+              Explore the source code and implementation details: 
+              <a href="YOUR_GITHUB_REPO_LINK" target="_blank">View on GitHub</a>
+            </p>
+          </div>
+          <div class="resume-item">
+            <h4>Multimedia Streaming and Data Transferring</h4>
+            <span>Jain Deemed-to-be University | 2020-2021</span>
+            <p>
+              This project focuses on developing an efficient multimedia streaming and data-sharing system that allows file transfer and media streaming between devices over a local network. The goal is to optimize mobile web services for seamless and secure data exchange.
+            </p>
+            <h5>Key Features:</h5>
+            <ul>
+              <li>Designed a user-friendly interface for streaming multimedia files over Wi-Fi.</li>
+              <li>Implemented peer-to-peer file sharing for fast and secure data transfer.</li>
+              <li>Optimized bandwidth usage to ensure smooth playback with minimal buffering.</li>
+              <li>Developed a lightweight web application with a responsive design.</li>
+            </ul>
+            <h5>Technologies Used:</h5>
+            <ul>
+              <li>Python for backend server development.</li>
+              <li>JavaScript, HTML, and CSS for frontend design.</li>
+              <li>Flask framework for handling media requests and data streaming.</li>
+              <li>Socket programming for real-time file sharing.</li>
+            </ul>
+            <h5>Results and Impact:</h5>
+            <ul>
+              <li>Achieved fast and reliable file sharing over local networks.</li>
+              <li>Enhanced multimedia streaming quality with minimal data loss.</li>
+              <li>Provided a scalable solution for local media sharing.</li>
+            </ul>
+            <h5>Future Enhancements:</h5>
+            <ul>
+              <li>Adding cloud integration for remote media access.</li>
+              <li>Implementing encryption for enhanced data security.</li>
+              <li>Expanding platform compatibility for cross-device sharing.</li>
+            </ul>
+            <h5>GitHub Repository:</h5>
+            <p>
+              Explore the source code and implementation details: 
+              <a href="YOUR_GITHUB_REPO_LINK" target="_blank">View on GitHub</a>
+            </p>
+          </div>
+      </section>
+</section>
+
+<section id="research">
+    <h2>Research</h2>
+  
+    <div class="resume-item">
+      <h4>Personalized AI-Driven Cybersecurity Response System for IoT Devices</h4>
+      <span>Published | University of Massachusetts Dartmouth</span>
+      <p>
+        This research explores a new AI-driven cybersecurity approach for IoT devices, focusing on personalized security responses based on user behavior. 
+        Traditional security models struggle with high false positives and evolving cyber threats, making them inefficient in dynamic IoT environments. 
+        Our study proposes an adaptive, behavior-based security system that learns individual usage patterns to detect anomalies and respond to threats in real time.
+      </p>
+      <h5>Key Highlights:</h5>
+      <ul>
+        <li>Analyzes limitations of traditional rule-based security models for IoT.</li>
+        <li>Introduces an AI-driven security system that adapts to unique user behaviors.</li>
+        <li>Utilizes behavioral modeling, anomaly detection, and federated learning.</li>
+        <li>Reduces false alarms while increasing threat detection accuracy.</li>
+        <li>Explores privacy-preserving techniques through on-device AI learning.</li>
+      </ul>
+      <h5>Impact and Applications:</h5>
+      <ul>
+        <li>Enhances real-time cybersecurity in smart homes, healthcare, and industrial IoT.</li>
+        <li>Reduces over-reliance on predefined threat databases, improving detection accuracy.</li>
+        <li>Provides scalable, adaptive security for billions of IoT devices.</li>
+      </ul>
+      <h5>Future Research Directions:</h5>
+      <ul>
+        <li>Developing lightweight AI models for low-power IoT devices.</li>
+        <li>Integrating blockchain-based authentication for decentralized security.</li>
+        <li>Refining federated learning techniques for privacy-preserving model training.</li>
+      </ul>
+      <h5>Access the Full Paper:</h5>
+      <p>
+        Download the complete research paper: 
+        <a href="YOUR_PAPER_LINK_HERE" target="_blank">Read the Paper</a>
+      </p>
+    </div>
+  </section>
+  
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <div style="text-align:center;">
+      <p>Email: <a href="mailto:sakthiswarup1@gmail.com">sakthiswarup1@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/sakthi-swarup" target="_blank">Sakthi Swarup</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    
+  </footer>
+</body>
+</html>
