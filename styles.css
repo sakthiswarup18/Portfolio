@@ -472,3 +472,14 @@
     transform: translateY(0) !important;
   }
   
+  .profile-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 15px auto;
+    border: none;
+    outline: none;
+    background-color: #fff; /* or match your site background */
+  }
