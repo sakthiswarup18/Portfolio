@@ -9,35 +9,55 @@ gsap.registerPlugin(ScrollTrigger);
 const boxInput =
   "contact-field w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-[#ff6b1a]/60 transition-colors duration-300 text-sm";
 
-// The form posts to Netlify Forms. Netlify finds the form definition in
-// /public/__forms.html at deploy time; no server code or database needed.
+const formEndpoint = "/__forms.html";
+
+function emailDraft(formData) {
+  const name = formData.get("name");
+  const email = formData.get("email");
+  const message = formData.get("message").replace(/\r\n?|\n/g, "\r\n");
+  const body = `From: ${name} (${email})\r\n\r\n${message}`;
+  return `mailto:${SITE.email}?subject=Portfolio%20inquiry&body=${encodeURIComponent(body)}`;
+}
+
+// Netlify registers the form from public/__forms.html at deploy time.
 export default function Contact({ standalone = false }) {
   const ref = useRef(null);
-  const [form, setForm] = useState({ name: "", email: "", message: "", company: "" });
-  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
+  const submitting = useRef(false);
+  const [status, setStatus] = useState("idle");
+  const [fallbackHref, setFallbackHref] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (submitting.current) return;
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    submitting.current = true;
     setStatus("sending");
     try {
-      const body = new URLSearchParams({
-        "form-name": "contact",
-        name: form.name,
-        email: form.email,
-        message: form.message,
-        company: form.company, // honeypot, stays empty for real people
-      }).toString();
-      const res = await fetch("/__forms.html", {
+      const res = await fetch(formEndpoint, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body,
+        body: new URLSearchParams(data).toString(),
       });
-      if (!res.ok) throw new Error("bad status");
-      setStatus("sent");
-      setForm({ name: "", email: "", message: "", company: "" });
+      if (res.ok) {
+        form.reset();
+        setFallbackHref("");
+        setStatus("sent");
+        return;
+      }
     } catch {
-      setStatus("error");
+      // Keep the message available if the request fails.
+    } finally {
+      submitting.current = false;
     }
+
+    setFallbackHref(emailDraft(data));
+    setStatus("error");
+  };
+
+  const handleInput = (e) => {
+    if (status === "error") setFallbackHref(emailDraft(new FormData(e.currentTarget)));
   };
 
   useEffect(() => {
@@ -75,37 +95,42 @@ export default function Contact({ standalone = false }) {
       <div className="flex flex-col md:flex-row items-stretch gap-0 w-full max-w-[1500px] mx-auto min-h-[60vh]">
         {/* LEFT: form */}
         <div className="w-full md:w-[42%] pr-0 md:pr-12">
-          <form onSubmit={handleSubmit} name="contact" className="flex flex-col gap-5" aria-label="Contact form">
+          <form
+            onSubmit={handleSubmit}
+            onChange={handleInput}
+            name="contact"
+            method="post"
+            action={formEndpoint}
+            className="flex flex-col gap-5"
+            aria-label="Contact form"
+          >
+            <input type="hidden" name="form-name" value="contact" />
             <label className="flex flex-col gap-1.5">
               <span className="text-[10px] text-white/30 tracking-[0.3em] uppercase">Name</span>
-              <input className={boxInput} type="text" name="name" placeholder="Your full name" required autoComplete="name"
-                value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
+              <input className={boxInput} type="text" name="name" placeholder="Your full name" required autoComplete="name" readOnly={status === "sending"} />
             </label>
             <label className="flex flex-col gap-1.5">
               <span className="text-[10px] text-white/30 tracking-[0.3em] uppercase">Email</span>
-              <input className={boxInput} type="email" name="email" placeholder="email@example.com" required autoComplete="email"
-                value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
+              <input className={boxInput} type="email" name="email" placeholder="email@example.com" required autoComplete="email" readOnly={status === "sending"} />
             </label>
             <label className="flex flex-col gap-1.5">
               <span className="text-[10px] text-white/30 tracking-[0.3em] uppercase">Message</span>
-              <textarea className={boxInput + " resize-none"} rows={4} name="message" required
-                placeholder="The role, the team, or the data problem you're working on…"
-                value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
+              <textarea className={boxInput + " resize-none"} rows={4} name="message" required readOnly={status === "sending"}
+                placeholder="The role, the team, or the data problem you're working on…" />
             </label>
             {/* honeypot: hidden from people, tempting to bots */}
-            <input type="text" name="company" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden"
-              value={form.company} onChange={(e) => setForm({ ...form, company: e.target.value })} />
+            <input type="text" name="company" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
 
             {status === "error" && (
               <p className="text-red-400 text-sm" role="alert">
-                That didn't send. Email me directly at{" "}
-                <a className="underline" href={`mailto:${SITE.email}`}>{SITE.email}</a>.
+                That didn’t send. Try again or{" "}
+                <a className="underline" href={fallbackHref}>open a prefilled email draft</a>.
               </p>
             )}
 
             {status === "sent" ? (
               <p className="contact-btn text-[#ff6b1a] text-sm uppercase tracking-widest font-bold" role="status">
-                Message sent. I'll reply within a day.
+                Message submitted. Thanks for reaching out.
               </p>
             ) : (
               <button type="submit" disabled={status === "sending"}
