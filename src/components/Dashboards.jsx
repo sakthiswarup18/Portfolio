@@ -2,9 +2,8 @@
 import { useEffect, useRef, useState } from "react";
 import { DASHBOARDS } from "@/content/site";
 
-// The three dashboards are the original hand-written SVG/JS panels, served
-// untouched from /public/dashboards and framed here. The frame reports its
-// own height so it sits in the page like any other section (no inner scroll).
+// The panels in /public/dashboards report their height so the frame can
+// resize with the content and scroll with the page.
 export default function Dashboards() {
   const frameRef = useRef(null);
   const [height, setHeight] = useState(2400);
@@ -30,7 +29,7 @@ export default function Dashboards() {
           <span className="block ghost">{DASHBOARDS.heading[1]}</span>
         </h2>
         </div>
-        <p className="text-sm md:text-base text-white/50 font-light leading-relaxed max-w-xl lg:justify-self-end lg:pb-3">{DASHBOARDS.intro}</p>
+        <p className="text-base md:text-lg text-white/50 font-light leading-relaxed max-w-xl lg:justify-self-end lg:pb-3">{DASHBOARDS.intro}</p>
       </div>
 
       <div

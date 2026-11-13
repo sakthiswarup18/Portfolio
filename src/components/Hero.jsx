@@ -48,13 +48,15 @@ export default function Hero() {
       ref={ref}
       className="relative min-h-[135vh] flex flex-col justify-center px-10 md:px-24 overflow-hidden"
     >
-      {/* Portrait: a cut-out that fades into the background at the bottom */}
-      <div className="hero-photo pointer-events-none absolute z-0 right-[-18%] sm:right-[-6%] lg:right-[3%] xl:right-[7%] top-[9vh] h-[100vh] opacity-30 lg:opacity-100" aria-hidden="true">
+      {/* Feather the portrait into the background video. */}
+      <div className="hero-photo pointer-events-none absolute z-0 right-[-18%] sm:right-[-6%] lg:right-[3%] xl:right-[7%] top-[9vh] w-[min(90vw,68vh)] sm:w-[min(56vw,68vh)] lg:w-[min(44vw,68vh)] opacity-40 lg:opacity-100" aria-hidden="true">
         <div className="hero-photo-glow" />
         <img
-          src="/photo/hero-portrait.webp"
+          src="/photo/sakthi-portrait-card.jpg"
           alt=""
-          className="hero-photo-img relative h-full w-auto max-w-none select-none"
+          width={760}
+          height={1055}
+          className="hero-photo-img relative w-full select-none"
           draggable="false"
         />
       </div>

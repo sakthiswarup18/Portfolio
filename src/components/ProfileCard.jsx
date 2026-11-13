@@ -13,12 +13,9 @@ const ANIMATION_CONFIG = {
 
 const clamp = (v, min = 0, max = 100) => Math.min(Math.max(v, min), max);
 const round = (v, precision = 3) => parseFloat(v.toFixed(precision));
-const adjust = (v, fMin, fMax, tMin, tMax) => round(tMin + ((tMax - tMin) * (v - fMin)) / (fMax - fMin));
 
 const ProfileCardComponent = ({
   avatarUrl = '/photo/sakthi-headshot.jpg',
-  iconUrl = '',
-  grainUrl = '',
   innerGradient,
   behindGlowEnabled = true,
   behindGlowColor,
@@ -75,9 +72,6 @@ const ProfileCardComponent = ({
       const properties = {
         '--pointer-x': `${percentX}%`,
         '--pointer-y': `${percentY}%`,
-        '--background-x': `${adjust(percentX, 0, 100, 35, 65)}%`,
-        '--background-y': `${adjust(percentY, 0, 100, 35, 65)}%`,
-        '--pointer-from-center': `${clamp(Math.hypot(percentY - 50, percentX - 50) / 50, 0, 1)}`,
         '--pointer-from-top': `${percentY / 100}`,
         '--pointer-from-left': `${percentX / 100}`,
         '--rotate-x': `${round(-(centerX / 5))}deg`,
@@ -291,13 +285,11 @@ const ProfileCardComponent = ({
 
   const cardStyle = useMemo(
     () => ({
-      '--icon': iconUrl ? `url(${iconUrl})` : 'none',
-      '--grain': grainUrl ? `url(${grainUrl})` : 'none',
       '--inner-gradient': innerGradient ?? DEFAULT_INNER_GRADIENT,
       '--behind-glow-color': behindGlowColor ?? 'rgba(255, 107, 26, 0.4)',
       '--behind-glow-size': behindGlowSize ?? '50%'
     }),
-    [iconUrl, grainUrl, innerGradient, behindGlowColor, behindGlowSize]
+    [innerGradient, behindGlowColor, behindGlowSize]
   );
 
   const handleContactClick = useCallback((e) => {
@@ -311,8 +303,6 @@ const ProfileCardComponent = ({
       <div ref={shellRef} className="pc-card-shell">
         <section className="pc-card">
           <div className="pc-inside">
-            <div className="pc-shine" />
-            <div className="pc-glare" />
             <div className="pc-content pc-avatar-content">
               <img
                 className="avatar"

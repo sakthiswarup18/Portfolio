@@ -156,10 +156,12 @@ html::-webkit-scrollbar { display: none; }
   scrollbar-width: none;
 }
 
-/* ── Hero portrait: soft glow behind, fades out towards the feet ── */
+/* ── Hero portrait: soft glow and feathered edges ── */
 .hero-photo-img {
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 52%, transparent 96%);
-  mask-image: linear-gradient(to bottom, #000 0%, #000 52%, transparent 96%);
+  mask-image:
+    linear-gradient(to bottom, transparent, #000 5%, #000 56%, transparent),
+    linear-gradient(to right, transparent, #000 22%, #000 80%, transparent);
+  mask-composite: intersect;
   filter: brightness(1.08) contrast(1.04) drop-shadow(0 30px 60px rgba(0, 0, 0, 0.6));
 }
 .hero-photo-glow {

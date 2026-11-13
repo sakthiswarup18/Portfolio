@@ -61,7 +61,7 @@ export default function About({ standalone = false }) {
 
         {/* Left Bio */}
         <div className={`w-full lg:w-[55%] max-w-2xl flex flex-col ${standalone ? "ml-auto lg:pr-10 text-right items-end" : "mr-auto text-left items-start"}`}>
-          <p className="about-label text-[10px] text-[#ff6b1a] tracking-[0.5em] uppercase mb-6 font-medium">
+          <p className="about-label text-xs text-[#ff6b1a] tracking-[0.5em] uppercase mb-6 font-medium">
             {ABOUT.label}
           </p>
 
@@ -82,7 +82,7 @@ export default function About({ standalone = false }) {
               animateBy="words"
               direction="bottom"
               stepDuration={0.22}
-              className={`about-p text-sm md:text-base text-white/50 max-w-lg ${i < ABOUT.bio.length - 1 ? "mb-6" : "mb-4"} font-light leading-relaxed ${standalone ? "text-right" : ""}`}
+              className={`about-p text-lg md:text-xl text-white/75 max-w-xl ${i < ABOUT.bio.length - 1 ? "mb-6" : "mb-4"} leading-relaxed ${standalone ? "text-right" : ""}`}
             />
           ))}
 
@@ -108,12 +108,12 @@ export default function About({ standalone = false }) {
           <div className="flex flex-col gap-8 w-full">
             {SKILLS.map((g) => (
               <div key={g.group} className="w-full">
-                <p className={`about-p text-[10px] tracking-[0.4em] uppercase mb-4 ${standalone ? "text-left" : "text-right"}`}>
-                  <span className="border-b border-white/30 pb-2 inline-block text-white/50">{g.group}</span>
+                <p className={`about-p text-sm tracking-widest uppercase mb-4 ${standalone ? "text-left" : "text-right"}`}>
+                  <span className="border-b border-white/30 pb-2 inline-block text-white/65">{g.group}</span>
                 </p>
                 <div className={`flex gap-2 flex-wrap ${standalone ? "justify-start" : "justify-end"}`}>
                   {g.items.map((name) => (
-                    <span key={name} className="about-skill px-4 py-2 border border-white/12 rounded-full text-[10px] text-white/45 tracking-widest uppercase transition-colors duration-300 hover:bg-white hover:text-[#ff6b1a] hover:border-white cursor-default">
+                    <span key={name} className="about-skill px-4 py-2 border border-white/12 rounded-full text-sm text-white/80 tracking-wider uppercase transition-colors duration-300 hover:bg-white hover:text-[#ff6b1a] hover:border-white cursor-default">
                       {name}
                     </span>
                   ))}

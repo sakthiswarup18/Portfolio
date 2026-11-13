@@ -37,7 +37,7 @@ export default function Experience() {
             <span className="block">Where I've</span>
             <span className="block ghost">worked.</span>
           </h2>
-          <p className="hidden lg:block mt-8 text-sm text-white/45 font-light leading-relaxed max-w-sm">
+          <p className="hidden lg:block mt-8 text-lg text-white/45 font-light leading-relaxed max-w-sm">
             Five years across healthcare data: enrolment pipelines, reporting layers, and the dashboards teams open every morning.
           </p>
         </div>
@@ -46,7 +46,7 @@ export default function Experience() {
           {EXPERIENCE.map((job) => {
             const isOpen = open === job.num;
             return (
-              <article key={job.num} className="exp-item group relative flex items-start gap-6 md:gap-8 py-10 md:py-12 border-b border-white/8 hover:border-white/20 transition-colors duration-500">
+              <article key={job.num} className="exp-item group relative flex items-start gap-3 sm:gap-6 md:gap-8 py-10 md:py-12 border-b border-white/8 hover:border-white/20 transition-colors duration-500">
                 <div className="absolute left-0 top-0 bottom-0 w-px bg-[#ff6b1a] origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out" />
                 <div className="pl-3 shrink-0 w-8 pt-1">
                   <span className="font-mono text-[10px] text-white/20 group-hover:text-[#ff6b1a] tracking-widest transition-colors duration-300">{job.num}</span>
@@ -57,12 +57,12 @@ export default function Experience() {
                   </p>
                   <h3 className="text-2xl md:text-3xl font-black text-white tracking-tighter">{job.company}</h3>
                   <p className="text-[11px] text-[#ff6b1a]/80 tracking-[0.3em] uppercase mt-1 mb-4">{job.role}</p>
-                  <p className="text-sm text-white/55 font-light leading-relaxed max-w-3xl">{job.summary}</p>
+                  <p className="text-lg md:text-xl text-white/75 leading-relaxed max-w-3xl">{job.summary}</p>
 
                   {job.points.length > 0 && (
-                    <ul className="mt-5 flex flex-col gap-2.5 max-w-3xl">
+                    <ul className="mt-5 flex flex-col gap-2.5 max-w-3xl text-lg md:text-xl leading-relaxed">
                       {job.points.map((p) => (
-                        <li key={p} className="flex gap-3 text-sm text-white/45 font-light leading-relaxed">
+                        <li key={p} className="flex gap-3 text-white/70">
                           <span className="text-[#ff6b1a] shrink-0">—</span>{p}
                         </li>
                       ))}
@@ -71,9 +71,9 @@ export default function Experience() {
 
                   {isOpen && (
                     <div className="mt-6 max-w-3xl">
-                      <ul className="flex flex-col gap-2.5">
+                      <ul className="flex flex-col gap-2.5 text-lg md:text-xl leading-relaxed">
                         {job.more.map((p) => (
-                          <li key={p} className="flex gap-3 text-sm text-white/40 font-light leading-relaxed">
+                          <li key={p} className="flex gap-3 text-white/70">
                             <span className="text-white/25 shrink-0">—</span>{p}
                           </li>
                         ))}
@@ -100,7 +100,7 @@ export default function Experience() {
                     type="button"
                     onClick={() => setOpen(isOpen ? null : job.num)}
                     aria-expanded={isOpen}
-                    className="mt-6 text-[10px] text-white/35 hover:text-[#ff6b1a] tracking-widest uppercase transition-colors duration-200"
+                    className="mt-6 text-xs text-white/60 hover:text-[#ff6b1a] tracking-widest uppercase transition-colors duration-200"
                   >
                     {isOpen ? "Show less −" : job.awards ? "More + awards +" : "More from this role +"}
                   </button>

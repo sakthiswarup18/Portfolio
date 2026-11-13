@@ -49,7 +49,7 @@ export default function ProjectsPage() {
             const count = f.key === "all" ? PROJECTS.length : PROJECTS.filter((p) => p.cat === f.key).length;
             return (
               <button key={f.key} type="button" onClick={() => pick(f.key)} aria-pressed={active}
-                className={`px-4 py-2 rounded-full text-[10px] md:text-xs font-medium tracking-widest uppercase transition-all duration-300 border ${
+                className={`px-4 py-2 rounded-full text-xs md:text-sm font-medium tracking-widest uppercase transition-all duration-300 border ${
                   active ? "bg-[#ff6b1a] text-black border-[#ff6b1a]" : "bg-transparent text-white/45 border-white/10 hover:text-white hover:border-white/30"
                 }`}>
                 {f.label} <span className={active ? "opacity-60" : "opacity-40"}>{count}</span>
@@ -64,7 +64,7 @@ export default function ProjectsPage() {
           {list.map((p, i) => {
             const isOpen = open === p.id;
             return (
-              <article key={p.id} className="pp-item group relative flex items-start gap-6 md:gap-8 py-10 md:py-12 border-b border-white/8 hover:border-white/20 transition-colors duration-500">
+              <article key={p.id} className="pp-item group relative flex items-start gap-3 sm:gap-6 md:gap-8 py-10 md:py-12 border-b border-white/8 hover:border-white/20 transition-colors duration-500">
                 <div className="absolute left-0 top-0 bottom-0 w-px bg-[#ff6b1a] origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out" />
                 <div className="pl-3 shrink-0 w-8 pt-1">
                   <span className="font-mono text-[10px] text-white/20 group-hover:text-[#ff6b1a] tracking-widest transition-colors duration-300">
@@ -72,20 +72,20 @@ export default function ProjectsPage() {
                   </span>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-[10px] text-white/35 tracking-[0.35em] uppercase mb-2">{p.meta}</p>
-                  <h2 className="text-2xl md:text-3xl font-black text-white tracking-tighter mb-3">{p.title}</h2>
-                  <p className="text-sm text-white/55 font-light leading-relaxed max-w-3xl">{p.description}</p>
+                  <p className="text-xs text-white/35 tracking-[0.35em] uppercase mb-2">{p.meta}</p>
+                  <h2 className="text-[1.75rem] md:text-[2.125rem] leading-tight font-black text-white tracking-tighter mb-3">{p.title}</h2>
+                  <p className="text-lg md:text-xl text-white/75 leading-relaxed max-w-3xl">{p.description}</p>
 
                   <div className="flex gap-2 flex-wrap mt-5">
                     {p.tech.map((t) => (
-                      <span key={t} className="px-3 py-1.5 border border-white/12 rounded-full text-[10px] text-white/45 tracking-widest uppercase">{t}</span>
+                      <span key={t} className="px-3 py-1.5 border border-white/12 rounded-full text-sm text-white/65 tracking-wider uppercase">{t}</span>
                     ))}
                   </div>
 
                   {isOpen && (
-                    <ul className="mt-6 flex flex-col gap-2.5 max-w-3xl">
+                    <ul className="mt-6 flex flex-col gap-2.5 max-w-3xl text-lg md:text-xl leading-relaxed">
                       {p.details.map((d) => (
-                        <li key={d} className="flex gap-3 text-sm text-white/45 font-light leading-relaxed">
+                        <li key={d} className="flex gap-3 text-white/70">
                           <span className="text-[#ff6b1a] shrink-0">—</span>{d}
                         </li>
                       ))}
@@ -94,11 +94,11 @@ export default function ProjectsPage() {
 
                   <div className="flex flex-wrap items-center gap-x-8 gap-y-3 mt-6">
                     <a href={p.link.href} target="_blank" rel="noopener noreferrer"
-                      className="text-[11px] text-[#ff6b1a] hover:text-white tracking-widest uppercase font-bold transition-colors duration-200">
+                      className="text-xs md:text-sm text-[#ff6b1a] hover:text-white tracking-widest uppercase font-bold transition-colors duration-200">
                       {p.link.label} ↗
                     </a>
                     <button type="button" onClick={() => setOpen(isOpen ? null : p.id)} aria-expanded={isOpen}
-                      className="text-[10px] text-white/35 hover:text-white tracking-widest uppercase transition-colors duration-200">
+                      className="text-xs md:text-sm text-white/35 hover:text-white tracking-widest uppercase transition-colors duration-200">
                       {isOpen ? "Hide details −" : "How it was built +"}
                     </button>
                   </div>

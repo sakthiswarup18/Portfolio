@@ -1,5 +1,4 @@
-/* Adapts the original dashboards to the cinematic site: near-black surfaces
-   and the orange accent. Layout and chart code are untouched. */
+/* Adapts the dashboard colors and typography to the portfolio. */
 html, body { background: transparent !important; overflow: hidden; }
 body::before, body::after { display: none !important; }
 html { scrollbar-width: none; }
@@ -42,3 +41,10 @@ html { scrollbar-width: none; }
   --serif: "Inter Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 .console .prose { color: var(--ink-2); }
+.console-intro, .readout { font-size: 1.125rem; }
+.plot-note, .seg button, .control output, .kpi-delta, .tip {
+  font-size: 0.9375rem;
+}
+.control-label, .plot-head h3, .kpi dt, .legend, .axis-note, .synthetic {
+  font-size: 0.75rem;
+}
