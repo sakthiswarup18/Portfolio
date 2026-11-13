@@ -1,5 +1,5 @@
 /* Adapts the dashboard colors and typography to the portfolio. */
-html, body { background: transparent !important; overflow: hidden; }
+html, body { background: transparent !important; }
 body::before, body::after { display: none !important; }
 html { scrollbar-width: none; }
 

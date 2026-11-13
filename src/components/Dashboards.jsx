@@ -41,7 +41,6 @@ export default function Dashboards() {
           src="/dashboards/index.html"
           title="Interactive dashboards: hospital operations, data job salaries, crypto forecast"
           loading="lazy"
-          scrolling="no"
           className="block w-full border-0"
           style={{ height }}
         />

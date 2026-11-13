@@ -1,10 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
-import Lenis from "lenis";
-import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 import dynamic from "next/dynamic";
 import Cursor from "../components/Cursor";
@@ -18,20 +14,15 @@ import Footer from "../components/Footer";
 import Experience from "../components/Experience";
 import Dashboards from "../components/Dashboards";
 import Credentials from "../components/Credentials";
+import useSmoothScroll from "../components/useSmoothScroll";
 
 export default function Home() {
   const blurWrapRef = useRef(null);
   const footerRef   = useRef(null);
+  useSmoothScroll();
 
   useEffect(() => {
-    const lenis = new Lenis({
-      lerp: 0.1, // More responsive, less lag
-      smoothWheel: true,
-      wheelMultiplier: 1, // Normal scroll speed
-    });
-
-    lenis.on("scroll", () => {
-      ScrollTrigger.update();
+    const updateBlur = () => {
       if (blurWrapRef.current && footerRef.current) {
         const footerTop = footerRef.current.getBoundingClientRect().top;
         const vh = window.innerHeight;
@@ -39,27 +30,26 @@ export default function Home() {
         const opacity = footerTop >= vh ? 1 : Math.max(0, footerTop / vh);
         blurWrapRef.current.style.opacity = opacity;
       }
-
-    });
-
-    const tick = (time) => { lenis.raf(time * 1000); };
-    gsap.ticker.add(tick);
-    gsap.ticker.lagSmoothing(0);
+    };
+    window.addEventListener("scroll", updateBlur, { passive: true });
+    updateBlur();
 
     // Sections change height after load (the dashboards frame, expanding
     // roles), so scroll-linked effects re-measure whenever the page resizes.
     let refreshTimer;
     const resize = new ResizeObserver(() => {
       clearTimeout(refreshTimer);
-      refreshTimer = setTimeout(() => ScrollTrigger.refresh(), 200);
+      refreshTimer = setTimeout(() => {
+        ScrollTrigger.refresh();
+        updateBlur();
+      }, 200);
     });
     resize.observe(document.body);
 
     return () => {
       resize.disconnect();
       clearTimeout(refreshTimer);
-      lenis.destroy();
-      gsap.ticker.remove(tick);
+      window.removeEventListener("scroll", updateBlur);
     };
   }, []);
 

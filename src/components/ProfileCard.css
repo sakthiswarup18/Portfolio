@@ -17,7 +17,6 @@
   transform: translate3d(0, 0, 0.1px);
   position: relative;
   width: min(57.44svh, 388px, 100%);
-  touch-action: none;
 }
 
 .pc-behind {

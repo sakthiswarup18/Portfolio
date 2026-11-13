@@ -25,10 +25,10 @@ html, body {
   background: #080808;
   color: #fff;
   font-family: var(--font-inter), "Inter", sans-serif;
-  overflow-x: hidden;
 }
 
 html {
+  overflow-x: clip;
   scrollbar-width: none;
 }
 html::-webkit-scrollbar { display: none; }

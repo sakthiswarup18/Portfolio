@@ -41,7 +41,7 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <section ref={ref} className="relative w-full min-h-dvh overflow-y-auto">
+    <section ref={ref} className="relative w-full min-h-dvh">
 
       {/* ── MOBILE LAYOUT ── */}
       <div className="flex flex-col px-5 pt-28 pb-10 relative z-10 md:hidden min-h-dvh">

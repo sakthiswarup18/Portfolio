@@ -24,10 +24,28 @@ export default function Navbar() {
   // Close menu on route change
   useEffect(() => { setOpen(false); }, [pathname]);
 
-  // Lock body scroll when menu open
+  // Lock the viewport while the mobile menu is open.
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    if (!open) return;
+
+    const desktop = window.matchMedia("(min-width: 48rem)");
+    const closeOnDesktop = () => {
+      if (desktop.matches) setOpen(false);
+    };
+    if (desktop.matches) {
+      closeOnDesktop();
+      return;
+    }
+
+    const root = document.documentElement;
+    const previousOverflow = root.style.overflow;
+    root.style.overflow = "hidden";
+    desktop.addEventListener("change", closeOnDesktop);
+
+    return () => {
+      root.style.overflow = previousOverflow;
+      desktop.removeEventListener("change", closeOnDesktop);
+    };
   }, [open]);
 
   useEffect(() => {
