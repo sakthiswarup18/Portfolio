@@ -25,15 +25,18 @@ export default function Credentials() {
 
   return (
     <section ref={ref} id="credentials-section" className="relative w-full px-10 md:px-20 pt-32 pb-40">
-      <div className="max-w-5xl w-full flex flex-col gap-28">
+      <div className="w-full max-w-[1500px] mx-auto flex flex-col gap-28">
 
         {/* Publication */}
-        <div className="cred-item">
-          <p className={label}>Publication</p>
-          <h2 className="font-black tracking-tighter text-white leading-[0.95] mb-6" style={{ fontSize: "clamp(2rem, 4.5vw, 3.75rem)" }}>
-            {PUBLICATION.title}
-          </h2>
-          <p className="text-[10px] text-white/35 tracking-[0.35em] uppercase mb-6">{PUBLICATION.venue}</p>
+        <div className="cred-item grid lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-x-16 gap-y-8 items-start">
+          <div>
+            <p className={label}>Publication</p>
+            <h2 className="font-black tracking-tighter text-white leading-[0.95] mb-6" style={{ fontSize: "clamp(2rem, 3.6vw, 3.5rem)" }}>
+              {PUBLICATION.title}
+            </h2>
+            <p className="text-[10px] text-white/35 tracking-[0.35em] uppercase">{PUBLICATION.venue}</p>
+          </div>
+          <div className="lg:pt-9">
           <p className="text-sm md:text-base text-white/55 font-light leading-relaxed max-w-3xl">{PUBLICATION.summary}</p>
           <ul className="mt-5 flex flex-col gap-2.5 max-w-3xl">
             {PUBLICATION.points.map((p) => (
@@ -46,11 +49,18 @@ export default function Credentials() {
             className="mt-8 inline-flex items-center gap-2 px-6 py-3 border border-[#ff6b1a]/30 text-[#ff6b1a] text-xs font-bold uppercase tracking-widest rounded-full hover:bg-[#ff6b1a] hover:text-black transition-colors duration-300">
             Read the paper (PDF) →
           </a>
+          </div>
         </div>
 
         {/* Education */}
-        <div>
-          <p className={`cred-item ${label}`}>Education</p>
+        <div className="grid lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-x-16 items-start">
+          <div className="cred-item mb-8">
+            <p className={label}>Education</p>
+            <h2 className="font-black tracking-tighter text-white leading-[0.88]" style={{ fontSize: "clamp(2.6rem, 5vw, 4.5rem)" }}>
+              <span className="block">Where I</span>
+              <span className="block ghost">studied.</span>
+            </h2>
+          </div>
           <div className="flex flex-col">
             {EDUCATION.map((e, i) => (
               <article key={e.degree} className="cred-item group relative flex items-start gap-6 md:gap-8 py-10 border-b border-white/8">
@@ -78,7 +88,7 @@ export default function Credentials() {
         {/* Certificates */}
         <div>
           <p className={`cred-item ${label}`}>Certifications ({CERTIFICATES.length})</p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {CERTIFICATES.map((c) => (
               <a key={c.href} href={c.href} target="_blank" rel="noopener noreferrer"
                 className="cred-item block border border-white/10 rounded-xl p-4 bg-black/20 hover:border-[#ff6b1a]/60 transition-colors duration-300">

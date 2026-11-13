@@ -22,13 +22,15 @@ export default function Dashboards() {
 
   return (
     <section id="dashboards-section" className="relative w-full pt-40 pb-32">
-      <div className="px-10 md:px-20 max-w-5xl mb-14">
+      <div className="px-10 md:px-20 w-full max-w-[1660px] mx-auto mb-14 grid lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] gap-x-16 gap-y-8 items-end">
+        <div>
         <p className="text-[10px] text-[#ff6b1a] tracking-[0.5em] uppercase mb-4 font-medium">{DASHBOARDS.label}</p>
-        <h2 className="font-black tracking-tighter text-white leading-[0.88] mb-8" style={{ fontSize: "clamp(2.6rem, 7vw, 5.5rem)" }}>
+        <h2 className="font-black tracking-tighter text-white leading-[0.88]" style={{ fontSize: "clamp(2.6rem, 7vw, 5.5rem)" }}>
           <span className="block">{DASHBOARDS.heading[0]}</span>
           <span className="block ghost">{DASHBOARDS.heading[1]}</span>
         </h2>
-        <p className="text-sm md:text-base text-white/50 font-light leading-relaxed max-w-2xl">{DASHBOARDS.intro}</p>
+        </div>
+        <p className="text-sm md:text-base text-white/50 font-light leading-relaxed max-w-xl lg:justify-self-end lg:pb-3">{DASHBOARDS.intro}</p>
       </div>
 
       <div

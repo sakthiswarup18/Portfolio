@@ -57,7 +57,7 @@ export default function About({ standalone = false }) {
       ref={ref}
       className={`relative w-full min-h-screen px-10 md:px-20 ${standalone ? "" : "z-20"}`}
     >
-      <div className="relative z-10 w-full min-h-screen flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20 py-32">
+      <div className="relative z-10 w-full max-w-[1500px] mx-auto min-h-screen flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20 py-32">
 
         {/* Left Bio */}
         <div className={`w-full lg:w-[55%] max-w-2xl flex flex-col ${standalone ? "ml-auto lg:pr-10 text-right items-end" : "mr-auto text-left items-start"}`}>

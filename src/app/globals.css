@@ -156,6 +156,30 @@ html::-webkit-scrollbar { display: none; }
   scrollbar-width: none;
 }
 
+/* ── Hero portrait: soft glow behind, fades out towards the feet ── */
+.hero-photo-img {
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 52%, transparent 96%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 52%, transparent 96%);
+  filter: brightness(1.08) contrast(1.04) drop-shadow(0 30px 60px rgba(0, 0, 0, 0.6));
+}
+.hero-photo-glow {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  width: 120%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(closest-side, rgba(255, 107, 26, 0.22), rgba(255, 107, 26, 0.06) 55%, transparent 75%);
+  filter: blur(20px);
+}
+
+/* ── Pages ease in instead of snapping when you change route ── */
+@keyframes page-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.page-in { animation: page-in 0.8s ease-out both; }
+
 /* ── Custom cursor steps aside while the pointer is inside the dashboards frame ── */
 .site-cursor { transition: opacity 0.2s; }
 body.cursor-out .site-cursor { opacity: 0; }

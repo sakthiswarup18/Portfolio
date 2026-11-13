@@ -49,19 +49,19 @@ export default function Work() {
     <section
       ref={ref}
       id="work-section"
-      className="relative w-full min-h-screen px-10 md:px-20 pt-64 pb-72 flex flex-col justify-center"
+      className="relative w-full min-h-screen px-10 md:px-20 pt-48 pb-56 flex flex-col justify-center"
     >
-      <div className="max-w-4xl w-full">
+      <div className="w-full max-w-[1500px] mx-auto grid lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-x-16 items-start">
 
         {/* Header and Filters */}
-        <div className="mb-14 md:mb-20">
+        <div className="mb-14 md:mb-20 lg:sticky lg:top-32">
           <p className="font-sans text-[10px] text-[#ff6b1a] tracking-[0.5em] uppercase mb-4 font-medium">
             {SECTION.label}
           </p>
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+          <div className="flex flex-col gap-8">
             <h2
               className="font-sans font-black tracking-tighter text-white leading-none"
-              style={{ fontSize: "clamp(3rem, 8vw, 6rem)" }}
+              style={{ fontSize: "clamp(3rem, 6.5vw, 6rem)" }}
             >
               {SECTION.heading}
             </h2>

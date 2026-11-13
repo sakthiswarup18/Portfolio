@@ -30,12 +30,17 @@ export default function Experience() {
 
   return (
     <section ref={ref} id="experience-section" className="relative w-full px-10 md:px-20 pt-40 pb-40">
-      <div className="max-w-5xl w-full">
-        <p className="text-[10px] text-[#ff6b1a] tracking-[0.5em] uppercase mb-4 font-medium">Experience</p>
-        <h2 className="font-black tracking-tighter text-white leading-[0.88] mb-16" style={{ fontSize: "clamp(3rem, 8vw, 6rem)" }}>
-          <span className="block">Where I've</span>
-          <span className="block ghost">worked.</span>
-        </h2>
+      <div className="w-full max-w-[1500px] mx-auto grid lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-x-16">
+        <div className="lg:sticky lg:top-32 lg:self-start mb-16">
+          <p className="text-[10px] text-[#ff6b1a] tracking-[0.5em] uppercase mb-4 font-medium">Experience</p>
+          <h2 className="font-black tracking-tighter text-white leading-[0.88]" style={{ fontSize: "clamp(3rem, 6.5vw, 6rem)" }}>
+            <span className="block">Where I've</span>
+            <span className="block ghost">worked.</span>
+          </h2>
+          <p className="hidden lg:block mt-8 text-sm text-white/45 font-light leading-relaxed max-w-sm">
+            Five years across healthcare data: enrolment pipelines, reporting layers, and the dashboards teams open every morning.
+          </p>
+        </div>
 
         <div className="flex flex-col">
           {EXPERIENCE.map((job) => {

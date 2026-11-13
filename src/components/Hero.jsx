@@ -27,6 +27,7 @@ export default function Hero() {
       });
 
       gsap.from(".hero-sub",   { y: 30, opacity: 0, duration: 0.9, ease: "power3.out", delay: 1.4 });
+      gsap.from(".hero-photo", { x: 60, opacity: 0, duration: 1.6, ease: "power3.out", delay: 0.9 });
 
       gsap.to(ref.current, {
         scrollTrigger: {
@@ -47,6 +48,17 @@ export default function Hero() {
       ref={ref}
       className="relative min-h-[135vh] flex flex-col justify-center px-10 md:px-24 overflow-hidden"
     >
+      {/* Portrait: a cut-out that fades into the background at the bottom */}
+      <div className="hero-photo pointer-events-none absolute z-0 right-[-18%] sm:right-[-6%] lg:right-[3%] xl:right-[7%] top-[9vh] h-[100vh] opacity-30 lg:opacity-100" aria-hidden="true">
+        <div className="hero-photo-glow" />
+        <img
+          src="/photo/hero-portrait.webp"
+          alt=""
+          className="hero-photo-img relative h-full w-auto max-w-none select-none"
+          draggable="false"
+        />
+      </div>
+
       <div className="relative z-10 max-w-5xl">
         <p className="hero-label text-[10px] md:text-xs text-[#ff6b1a] tracking-[0.2em] uppercase font-bold mb-6">
           {HERO.label}

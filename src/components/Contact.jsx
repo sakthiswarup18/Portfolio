@@ -68,11 +68,11 @@ export default function Contact({ standalone = false }) {
       ref={ref}
       className="relative min-h-screen flex flex-col justify-center px-10 md:px-20 pt-28 md:pt-24 pb-24"
     >
-      <p className="contact-label text-[10px] text-[#ff6b1a] tracking-[0.5em] uppercase mb-12 font-medium">
+      <p className="contact-label w-full max-w-[1500px] mx-auto text-[10px] text-[#ff6b1a] tracking-[0.5em] uppercase mb-12 font-medium">
         {CONTACT.label}
       </p>
 
-      <div className="flex flex-col md:flex-row items-stretch gap-0 w-full max-w-7xl min-h-[60vh]">
+      <div className="flex flex-col md:flex-row items-stretch gap-0 w-full max-w-[1500px] mx-auto min-h-[60vh]">
         {/* LEFT: form */}
         <div className="w-full md:w-[42%] pr-0 md:pr-12">
           <form onSubmit={handleSubmit} name="contact" className="flex flex-col gap-5" aria-label="Contact form">
