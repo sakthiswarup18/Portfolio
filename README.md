@@ -2,7 +2,7 @@
 
 A cinematic, scroll-driven portfolio: dark, big type, an orange accent, a background video that plays as you scroll, and three interactive dashboards.
 
-Live site: https://sakthiswarup.netlify.app/
+The [original portfolio](https://sakthiswarup.netlify.app/) has its own Netlify project.
 
 ## Run it on your computer
 
@@ -13,7 +13,7 @@ npm install     # first time only
 npm run dev     # then open http://localhost:3000
 ```
 
-`npm run build` produces the finished site in the `out/` folder. That folder is plain static files; Netlify builds and publishes it on every push (see `netlify.toml`).
+`npm run build` produces a static site in `out/`. The cinematic portfolio deploys from the `cinematic` branch in its own Netlify project. Netlify supplies the public URL for the sitemap and page metadata during the build.
 
 ## Where to change things
 
@@ -59,7 +59,7 @@ Phones and visitors who ask for reduced motion get still frames instead (`public
 - **Next.js 15 + React 19**, exported as a fully static site. No server, no database.
 - **GSAP + Lenis** for scroll animation and smooth scrolling; **Tailwind CSS 4** for styling.
 - **Dashboards**: the original hand-written SVG/JavaScript panels (`data.js`, `dashboards.js`) run unchanged inside a frame. `public/dashboards/frame.css` is the only file that restyles them. All dashboard data is synthetic.
-- **Contact form**: Netlify Forms. The form is registered by `public/__forms.html`; submissions appear in the Netlify dashboard under Forms. It only works on the deployed site, not on localhost.
+- **Contact form** uses Netlify Forms. Enable form detection on the cinematic project and deploy again to register `public/__forms.html`. Add an email notification for the `contact` form under Forms → Submission notifications to receive messages in your inbox. If submission fails, visitors can open a prefilled draft in their email app.
 - **Fonts** (Inter, Playfair Display) are bundled with the site.
 
 ## The previous site

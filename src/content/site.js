@@ -4,7 +4,7 @@
 // ─────────────────────────────────────────────────────────────
 
 export const SITE = {
-  url: "https://sakthiswarup.netlify.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL,
   name: "Sakthi Swarup",
   fullName: "Sakthi Swarup V K",
   role: "Data Analyst",
