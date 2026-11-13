@@ -569,9 +569,10 @@
 /* ── Portfolio overrides: a regular rectangular photo instead of a cut-out ──
    The photo fills the card and fades out towards the top so the name stays readable. */
 .pc-avatar-content .avatar {
-  height: 86%;
+  height: 90%;
   object-fit: cover;
-  object-position: 50% 20%;
+  object-position: 50% 0%;
+  filter: brightness(1.45) contrast(1.05);
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 34%);
   mask-image: linear-gradient(to bottom, transparent 0%, #000 34%);
 }

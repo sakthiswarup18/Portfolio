@@ -61,8 +61,8 @@ export default function AboutPage() {
             handle="sakthi-swarup"
             status="Open to BI & data roles"
             contactText="Contact"
-            avatarUrl="/photo/sakthi-headshot.jpg"
-            miniAvatarUrl="/photo/sakthi-headshot.jpg"
+            avatarUrl="/photo/sakthi-portrait-card.jpg"
+            miniAvatarUrl="/photo/sakthi-headshot-500.jpg"
             showUserInfo={true}
             enableTilt={false}
             enableMobileTilt={false}
@@ -124,8 +124,8 @@ export default function AboutPage() {
               handle="sakthi-swarup"
             status="Open to BI & data roles"
             contactText="Contact"
-              avatarUrl="/photo/sakthi-headshot.jpg"
-              miniAvatarUrl="/photo/sakthi-headshot.jpg"
+              avatarUrl="/photo/sakthi-portrait-card.jpg"
+              miniAvatarUrl="/photo/sakthi-headshot-500.jpg"
               showUserInfo={true}
               enableTilt={true}
               enableMobileTilt={false}
