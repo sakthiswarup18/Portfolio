@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" class="js dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Dashboards — Sakthi Swarup</title>
+  <!-- The original portfolio stylesheet and dashboard scripts, unchanged. -->
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Only this file adapts them to the new site: palette and frame behaviour. -->
+  <link rel="stylesheet" href="frame.css" />
+</head>
+<body>
+<main id="main">
+    <section id="dashboards" class="band console">
+      <div class="shell">
+        <div class="band-head">
+          <h2>Hospital operations</h2>
+          <p class="synthetic">Synthetic data</p>
+        </div>
+
+        <div class="prose console-intro">
+          <p>Seven service-line metrics across twenty-four months, built from scratch — three years of real healthcare data isn't mine to publish, so this is the honest substitute. Choose a metric, shorten the window, or click a service line to read it on the left.</p>
+        </div>
+
+        <p class="console-fallback">
+          These panels are drawn with JavaScript, which is switched off or blocked. Everything else
+          on this page — the writing, the timeline, every project — is in the HTML and works
+          without it.
+        </p>
+
+        <div class="console-body" data-panel="ops">
+          <div class="controls">
+            <div class="control">
+              <span class="control-label" id="ops-metric-label">Metric</span>
+              <div class="seg" role="group" aria-labelledby="ops-metric-label" data-seg="metric">
+                <button type="button" data-v="readmit">Readmissions</button>
+                <button type="button" data-v="wait">Wait time</button>
+                <button type="button" data-v="los">Length of stay</button>
+                <button type="button" data-v="occ">Occupancy</button>
+                <button type="button" data-v="enc">Volume</button>
+              </div>
+            </div>
+
+            <div class="control">
+              <span class="control-label" id="ops-dept-label">Service line</span>
+              <div class="seg" role="group" aria-labelledby="ops-dept-label" data-seg="dept">
+                <button type="button" data-v="all">All lines</button>
+                <button type="button" data-v="ed">Emergency</button>
+                <button type="button" data-v="card">Cardiology</button>
+                <button type="button" data-v="ortho">Orthopaedics</button>
+                <button type="button" data-v="onc">Oncology</button>
+                <button type="button" data-v="mat">Maternity</button>
+                <button type="button" data-v="bh">Behavioural</button>
+                <button type="button" data-v="gen">General</button>
+              </div>
+            </div>
+
+            <div class="control">
+              <label class="control-label" for="ops-window">Window</label>
+              <input id="ops-window" type="range" min="4" max="24" step="1" value="24" />
+              <output for="ops-window" id="ops-window-out">24 months</output>
+            </div>
+          </div>
+
+          <dl class="kpis">
+            <div class="kpi">
+              <dt data-kt="1">Readmission, latest month</dt>
+              <dd><span data-kv="1">—</span><span class="kpi-delta" data-kd="1"></span></dd>
+            </div>
+            <div class="kpi">
+              <dt data-kt="2">Window average</dt>
+              <dd><span data-kv="2">—</span><span class="kpi-delta" data-kd="2"></span></dd>
+            </div>
+            <div class="kpi">
+              <dt data-kt="3">Encounters in window</dt>
+              <dd><span data-kv="3">—</span><span class="kpi-delta" data-kd="3"></span></dd>
+            </div>
+            <div class="kpi">
+              <dt data-kt="4">Spread across lines</dt>
+              <dd><span data-kv="4">—</span><span class="kpi-delta" data-kd="4"></span></dd>
+            </div>
+          </dl>
+
+          <div class="plots plots-2">
+            <figure class="plot">
+              <div class="plot-head">
+                <h3 data-title="trend">30-day readmission</h3>
+                <span class="axis-note" data-note="trend"></span>
+              </div>
+              <div class="plot-canvas" data-plot="trend"></div>
+              <figcaption class="plot-note">
+                Hover, or focus the chart and use the arrow keys, to read a month.
+              </figcaption>
+            </figure>
+
+            <figure class="plot">
+              <div class="plot-head">
+                <h3>By service line</h3>
+                <span class="axis-note">Window average</span>
+              </div>
+              <div class="plot-canvas" data-plot="dept"></div>
+              <figcaption class="plot-note">Click a line to select it.</figcaption>
+            </figure>
+          </div>
+
+          <p class="readout" data-readout role="status" aria-live="polite"></p>
+          <p class="sr-only" data-cursor role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="salaries" class="band console">
+      <div class="shell">
+        <div class="band-head">
+          <h2>The data job market</h2>
+          <p class="synthetic">Synthetic data</p>
+        </div>
+
+        <div class="prose console-intro">
+          <p>5,390 data-analyst postings across six years: every figure travels with its count, and any slice thinner than twelve postings is dropped rather than drawn. Combine all four filters to watch the fully-remote premium turn from a bonus into a discount.</p>
+        </div>
+
+        <p class="console-fallback">
+          This panel is drawn with JavaScript, which is switched off or blocked.
+        </p>
+
+        <div class="console-body" data-panel="jobs">
+          <div class="controls">
+            <div class="control">
+              <span class="control-label" id="jobs-region-label">Region</span>
+              <div class="seg" role="group" aria-labelledby="jobs-region-label" data-seg="region">
+                <button type="button" data-v="all">Everywhere</button>
+                <button type="button" data-v="us">United States</button>
+                <button type="button" data-v="eu">Europe</button>
+                <button type="button" data-v="in">India</button>
+                <button type="button" data-v="ot">Rest of world</button>
+              </div>
+            </div>
+
+            <div class="control">
+              <span class="control-label" id="jobs-level-label">Seniority</span>
+              <div class="seg" role="group" aria-labelledby="jobs-level-label" data-seg="level">
+                <button type="button" data-v="all">Any</button>
+                <button type="button" data-v="EN">Entry</button>
+                <button type="button" data-v="MI">Mid</button>
+                <button type="button" data-v="SE">Senior</button>
+                <button type="button" data-v="LD">Lead</button>
+              </div>
+            </div>
+
+            <div class="control">
+              <span class="control-label" id="jobs-mode-label">Work mode</span>
+              <div class="seg" role="group" aria-labelledby="jobs-mode-label" data-seg="mode">
+                <button type="button" data-v="all">Any</button>
+                <button type="button" data-v="0">Onsite</button>
+                <button type="button" data-v="50">Hybrid</button>
+                <button type="button" data-v="100">Remote</button>
+              </div>
+            </div>
+
+            <div class="control">
+              <span class="control-label" id="jobs-size-label">Company size</span>
+              <div class="seg" role="group" aria-labelledby="jobs-size-label" data-seg="size">
+                <button type="button" data-v="all">Any</button>
+                <button type="button" data-v="S">Under 200</button>
+                <button type="button" data-v="M">200 to 5,000</button>
+                <button type="button" data-v="L">Over 5,000</button>
+              </div>
+            </div>
+          </div>
+
+          <dl class="kpis">
+            <div class="kpi">
+              <dt data-kt="1">Median pay</dt>
+              <dd><span data-kv="1">—</span><span class="kpi-delta" data-kd="1"></span></dd>
+            </div>
+            <div class="kpi">
+              <dt data-kt="2">Middle half</dt>
+              <dd><span data-kv="2">—</span><span class="kpi-delta" data-kd="2"></span></dd>
+            </div>
+            <div class="kpi">
+              <dt data-kt="3">Postings in view</dt>
+              <dd><span data-kv="3">—</span><span class="kpi-delta" data-kd="3"></span></dd>
+            </div>
+            <div class="kpi">
+              <dt data-kt="4">2026 median</dt>
+              <dd><span data-kv="4">—</span><span class="kpi-delta" data-kd="4"></span></dd>
+            </div>
+          </dl>
+
+          <div class="plots plots-2">
+            <figure class="plot">
+              <div class="plot-head">
+                <h3>Median and middle half</h3>
+                <span class="axis-note">25th to 75th percentile</span>
+              </div>
+              <div class="plot-canvas" data-plot="years"></div>
+              <figcaption class="plot-note">
+                Hover, or focus the chart and use the arrow keys, to read a year. Gaps are years
+                with too few postings to quote.
+              </figcaption>
+            </figure>
+
+            <figure class="plot">
+              <div class="plot-head">
+                <h3>Spread of pay</h3>
+                <span class="axis-note">All years in view</span>
+              </div>
+              <div class="plot-canvas" data-plot="spread"></div>
+              <figcaption class="plot-note">
+                The dashed line marks the median of the postings currently shown.
+              </figcaption>
+            </figure>
+
+            <figure class="plot plot-wide">
+              <div class="plot-head">
+                <h3>Median by title</h3>
+                <span class="axis-note">Titles with 12 or more postings</span>
+              </div>
+              <div class="plot-canvas" data-plot="titles"></div>
+              <figcaption class="plot-note">
+                A title leaves the chart entirely when the filter leaves it too thin to rank —
+                narrow to entry level and the manager row goes, because the model gives it no
+                entry-level postings.
+              </figcaption>
+            </figure>
+          </div>
+
+          <p class="readout" data-readout role="status" aria-live="polite"></p>
+          <p class="sr-only" data-cursor role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="forecast" class="band console">
+      <div class="shell">
+        <div class="band-head">
+          <h2>Forecast against outturn</h2>
+          <p class="synthetic">Synthetic data</p>
+        </div>
+
+        <div class="prose console-intro">
+          <p>A backtest against a <b>naive carry-forward baseline</b> — the only comparison that matters on a series this close to a random walk. The 90% interval is scored, not decorated: its coverage is a headline figure, and nothing here is market advice.</p>
+        </div>
+
+        <p class="console-fallback">
+          This panel is drawn with JavaScript, which is switched off or blocked.
+        </p>
+
+        <div class="console-body" data-panel="crypto">
+          <div class="controls">
+            <div class="control">
+              <span class="control-label" id="cry-coin-label">Series</span>
+              <div class="seg" role="group" aria-labelledby="cry-coin-label" data-seg="coin">
+                <button type="button" data-v="btc">Bitcoin</button>
+                <button type="button" data-v="eth">Ethereum</button>
+                <button type="button" data-v="sol">Solana</button>
+              </div>
+            </div>
+
+            <div class="control">
+              <span class="control-label" id="cry-horizon-label">Horizon</span>
+              <div class="seg" role="group" aria-labelledby="cry-horizon-label" data-seg="horizon">
+                <button type="button" data-v="1">1 day</button>
+                <button type="button" data-v="3">3 days</button>
+                <button type="button" data-v="7">7 days</button>
+              </div>
+            </div>
+
+            <div class="control">
+              <label class="control-label" for="cry-window">Window</label>
+              <input id="cry-window" type="range" min="30" max="180" step="10" value="120" />
+              <output for="cry-window" id="cry-window-out">120 days</output>
+            </div>
+          </div>
+
+          <dl class="kpis">
+            <div class="kpi">
+              <dt data-kt="1">Mean absolute error</dt>
+              <dd><span data-kv="1">—</span><span class="kpi-delta" data-kd="1"></span></dd>
+            </div>
+            <div class="kpi">
+              <dt data-kt="2">Error as share of price</dt>
+              <dd><span data-kv="2">—</span><span class="kpi-delta" data-kd="2"></span></dd>
+            </div>
+            <div class="kpi">
+              <dt data-kt="3">Direction called right</dt>
+              <dd><span data-kv="3">—</span><span class="kpi-delta" data-kd="3"></span></dd>
+            </div>
+            <div class="kpi">
+              <dt data-kt="4">Inside the 90% band</dt>
+              <dd><span data-kv="4">—</span><span class="kpi-delta" data-kd="4"></span></dd>
+            </div>
+          </dl>
+
+          <div class="plots plots-2">
+            <figure class="plot plot-wide">
+              <div class="plot-head">
+                <h3 data-title="forecast">Bitcoin, 3 days ahead</h3>
+                <span class="axis-note">90% prediction interval</span>
+              </div>
+              <div class="plot-canvas" data-plot="forecast"></div>
+              <ul class="legend">
+                <li><i class="sw-truth"></i>Outturn</li>
+                <li><i class="sw-2"></i>Forecast</li>
+                <li><i class="sw-band"></i>90% interval</li>
+              </ul>
+              <figcaption class="plot-note">
+                Hover, or focus the chart and use the arrow keys, to read a day.
+              </figcaption>
+            </figure>
+
+            <figure class="plot">
+              <div class="plot-head">
+                <h3>Residuals</h3>
+                <span class="axis-note">Error as share of price</span>
+              </div>
+              <div class="plot-canvas" data-plot="resid"></div>
+              <figcaption class="plot-note">
+                Above the line the forecast was too high, below it too low. Sign is shown by
+                position rather than colour so the reading survives colour blindness.
+              </figcaption>
+            </figure>
+
+            <figure class="plot">
+              <div class="plot-head">
+                <h3>Against the free forecast</h3>
+                <span class="axis-note">Lower is better</span>
+              </div>
+              <div class="plot-canvas" data-plot="horizons"></div>
+              <ul class="legend">
+                <li><i class="sw-2"></i>Model</li>
+                <li><i class="sw-1"></i>Naive last close</li>
+              </ul>
+              <figcaption class="plot-note">
+                Mean absolute error at each horizon. The model's edge shrinks as the horizon
+                lengthens, which is the expected result.
+              </figcaption>
+            </figure>
+          </div>
+
+          <p class="readout" data-readout role="status" aria-live="polite"></p>
+          <p class="sr-only" data-cursor role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ PROJECTS ════════════════════════════════════════════ -->
+</main>
+<script src="data.js"></script>
+<script src="dashboards.js"></script>
+<script>
+  // Tell the parent page how tall this document is, so the frame never scrolls.
+  (function () {
+    function report() {
+      var h = document.getElementById('main').getBoundingClientRect().height;
+      parent.postMessage({ type: 'dashboards-height', height: h }, location.origin);
+    }
+    if (window.ResizeObserver) new ResizeObserver(report).observe(document.getElementById('main'));
+    window.addEventListener('load', report);
+    report();
+  })();
+</script>
+</body>
+</html>

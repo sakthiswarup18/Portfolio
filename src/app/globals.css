@@ -1,0 +1,186 @@
+@import "tailwindcss";
+@source "../../src";
+
+@theme {
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+}
+
+:root {
+  --orange: #ff6b1a;
+  --font-inter: "Inter Variable", "Inter", system-ui, sans-serif;
+  --font-playfair: "Playfair Display Variable", "Playfair Display", Georgia, serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Hide native cursor only on real pointer (mouse) devices, not touch */
+@media (pointer: fine) {
+  * { cursor: none !important; }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #080808;
+  color: #fff;
+  font-family: var(--font-inter), "Inter", sans-serif;
+  overflow-x: hidden;
+}
+
+html {
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar { display: none; }
+
+::selection {
+  background: var(--orange);
+  color: #000;
+}
+
+::-moz-selection {
+  background: var(--orange);
+  color: #000;
+}
+
+/* ── Ghost serif — Playfair italic outline, zero fill ──────────── */
+.ghost {
+  font-family: var(--font-playfair), "Playfair Display", serif;
+  font-style: italic;
+  font-weight: 400;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.45);
+  letter-spacing: -0.01em;
+}
+
+/* Coloured variant (e.g. Contact "Connect") */
+.ghost-orange {
+  font-family: var(--font-playfair), "Playfair Display", serif;
+  font-style: italic;
+  font-weight: 400;
+  color: transparent;
+  -webkit-text-stroke: 1.2px #ff6b1a;
+  letter-spacing: -0.01em;
+}
+
+.glass-cursor--hover {
+  width: 56px !important;
+  height: 56px !important;
+}
+
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.04;
+  will-change: transform;
+  contain: strict;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── Custom slim scrollbar for dropdowns & panels ─────────────── */
+.custom-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 107, 26, 0.4) transparent;
+}
+.custom-scroll::-webkit-scrollbar { width: 4px; }
+.custom-scroll::-webkit-scrollbar-track { background: transparent; }
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 107, 26, 0.35);
+  border-radius: 99px;
+}
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 107, 26, 0.65);
+}
+
+/* ── Bottom blur fade — masks bottom edge of page ─────────────── */
+.bottom-blur {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  pointer-events: none;
+  z-index: 40;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(8, 8, 8, 0.6) 50%,
+    rgba(8, 8, 8, 0.95) 100%
+  );
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  mask-image: linear-gradient(to bottom, transparent, black 60%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 60%);
+}
+
+/* ── Footer fade-up on scroll into view ───────────────────────── */
+.footer-hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.footer-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Screen-reader only (crawlable but visually hidden) ──────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ── Utilities to remove inline styles ──────── */
+.hero-clamp-text {
+  font-size: clamp(5rem, 15vw, 13rem);
+}
+
+.hero-perspective {
+  perspective: 1000px;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ── Custom cursor steps aside while the pointer is inside the dashboards frame ── */
+.site-cursor { transition: opacity 0.2s; }
+body.cursor-out .site-cursor { opacity: 0; }
+
+/* ── Keyboard focus stays visible on the dark background ── */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+}
+
+/* ── Blog post body ── */
+.post-body { color: rgba(255, 255, 255, 0.62); font-weight: 300; line-height: 1.8; font-size: 1.02rem; }
+.post-body > * + * { margin-top: 1.25rem; }
+.post-body h2 { color: #fff; font-weight: 900; letter-spacing: -0.03em; font-size: 1.6rem; line-height: 1.15; margin-top: 3rem; }
+.post-body h3 { color: #fff; font-weight: 800; letter-spacing: -0.02em; font-size: 1.2rem; margin-top: 2.25rem; }
+.post-body a { color: var(--orange); text-decoration: underline; text-underline-offset: 3px; }
+.post-body strong { color: rgba(255, 255, 255, 0.9); font-weight: 600; }
+.post-body ul { list-style: disc; padding-left: 1.25rem; }
+.post-body ol { list-style: decimal; padding-left: 1.25rem; }
+.post-body code { background: rgba(255, 255, 255, 0.08); border-radius: 6px; padding: 0.1em 0.4em; font-size: 0.9em; }
+.post-body pre { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 1rem 1.25rem; overflow-x: auto; }
+.post-body pre code { background: none; padding: 0; }
+.post-body blockquote { border-left: 2px solid var(--orange); padding-left: 1rem; font-family: var(--font-playfair), serif; font-style: italic; color: rgba(255, 255, 255, 0.8); }
+
+/* ── Visitors who ask for less motion get a still page ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

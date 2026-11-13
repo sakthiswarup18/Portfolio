@@ -1,0 +1,44 @@
+/* Adapts the original dashboards to the cinematic site: near-black surfaces
+   and the orange accent. Layout and chart code are untouched. */
+html, body { background: transparent !important; overflow: hidden; }
+body::before, body::after { display: none !important; }
+html { scrollbar-width: none; }
+
+.console {
+  --paper: transparent;
+  --panel: #131313;
+  --ink: #f2f2f2;
+  --ink-2: #9a9a9a;
+  --rule: #222222;
+  --rule-strong: #333333;
+  --signal: #ff6b1a;
+  --signal-soft: #ff6b1a26;
+  --accent: #ffc38a;
+  --accent-ink: #ffc38a;
+  --grid: #1f1f1f;
+  --plot-1: #b3420a;
+  --plot-2: #ff6b1a;
+  --plot-3: #ffb07a;
+  --brand: #ff6b1a;
+  --brand-mid: #ff8c42;
+  --brand-bright: #ffb07a;
+  --brand-soft: #2a1608;
+  --brand-border: #6b2f0c;
+  border-top: 0;
+}
+.band:first-child { border-top: 0; }
+.reveal { opacity: 1 !important; transform: none !important; }
+
+/* Same typeface as the rest of the site */
+@font-face {
+  font-family: "Inter Variable";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("/fonts/inter.woff2") format("woff2-variations");
+}
+:root, html.dark {
+  --sans: "Inter Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --serif: "Inter Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.console .prose { color: var(--ink-2); }
