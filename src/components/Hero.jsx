@@ -105,7 +105,7 @@ export default function Hero() {
               Download Résumé
             </a>
             <a
-              href="/videos/intro.mp4"
+              href="/videos/intro.mp4?v=2"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 border border-white/20 text-white/70 text-[11px] font-bold uppercase tracking-widest rounded-full hover:border-[#ff6b1a] hover:text-[#ff6b1a] transition-colors duration-300"
