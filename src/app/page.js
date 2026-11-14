@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import dynamic from "next/dynamic";
 import Cursor from "../components/Cursor";
+import IntroOverlay from "../components/IntroOverlay";
 import Navbar from "../components/Navbar";
 const VideoScrub = dynamic(() => import("../components/VideoScrub"), { ssr: false });
 import Hero from "../components/Hero";
@@ -57,6 +58,9 @@ export default function Home() {
     <main>
       {/* grain */}
       <div className="grain-overlay" />
+
+      {/* intro video — covers the page on first load, then fades into it */}
+      <IntroOverlay />
 
       {/* difference cursor */}
       <Cursor />
