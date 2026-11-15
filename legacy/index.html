@@ -164,10 +164,7 @@
           </ul>
         </div>
         <figure class="hero-photo hero-analyst" aria-hidden="true">
-          <video id="analyst-video" muted loop playsinline preload="none"
-                 poster="assets/video/analyst-loop-poster.jpg" width="1080" height="1350">
-            <source src="assets/video/analyst-loop.mp4" type="video/mp4" />
-          </video>
+          <img src="assets/img/sakthi-portrait-card.jpg" alt="" width="760" height="1055" />
         </figure>
       </div>
 
@@ -761,12 +758,12 @@
         </header>
 
         <div class="filters" role="group" aria-label="Filter projects by area">
-          <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">All <span class="filter-count">7</span></button>
+          <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">All <span class="filter-count">8</span></button>
           <button type="button" class="filter" data-filter="ml" aria-pressed="false">Machine learning <span class="filter-count">2</span></button>
           <button type="button" class="filter" data-filter="viz" aria-pressed="false">Visualisation <span class="filter-count">1</span></button>
           <button type="button" class="filter" data-filter="cloud" aria-pressed="false">Cloud &amp; pipelines <span class="filter-count">1</span></button>
           <button type="button" class="filter" data-filter="research" aria-pressed="false">Publication <span class="filter-count">1</span></button>
-          <button type="button" class="filter" data-filter="apps" aria-pressed="false">Applications <span class="filter-count">2</span></button>
+          <button type="button" class="filter" data-filter="apps" aria-pressed="false">Applications <span class="filter-count">3</span></button>
         </div>
         <p class="filter-status" role="status" aria-live="polite"></p>
 
@@ -914,6 +911,27 @@
                   <li>Flask backend handling media requests and streaming with socket programming.</li>
                   <li>Peer-to-peer sharing for fast local-network transfers.</li>
                   <li>Bandwidth tuned for minimal buffering; responsive front end for phone and desktop.</li>
+                </ul>
+              </details>
+            </div>
+          </article>
+
+          <article class="project reveal" data-category="apps">
+            <div class="project-accent" style="--c:#14b8a6"></div>
+            <div class="project-body">
+              <div class="project-head">
+                <h3>Clean TV launcher for a TCL Google TV</h3>
+                <p class="project-meta">Personal project · 2026</p>
+              </div>
+              <p class="project-line">A home screen I wrote for a TCL Google TV to replace the stock one, which showed promotional banners. It has a clock, a dock of the apps I use and an app grid, all driven from the remote. I also turned off the preinstalled apps I did not use, with scripts that can undo every change.</p>
+              <ul class="tags"><li>Java</li><li>Android</li><li>Python</li><li>Bash</li></ul>
+              <div class="project-links"><a href="https://github.com/sakthiswarup18/android-tv-clean" target="_blank" rel="noopener">Source on GitHub</a></div>
+              <details class="more">
+                <summary>How it was built</summary>
+                <ul class="tl-marks">
+                  <li>A single-activity Android launcher in plain Java, with remote-control focus handled by hand so one press moves exactly one row.</li>
+                  <li>Preinstalled apps are turned off in batches through a script that refuses core Android packages and any change that would leave the TV without a home screen.</li>
+                  <li>A small Python ADB client and shell scripts handle install, screenshots and restore, and every change is recorded so it can be undone.</li>
                 </ul>
               </details>
             </div>
@@ -1168,7 +1186,7 @@
   <script>
     // Keep both hero videos in sync with the playback control.
     (function () {
-      var videos = [document.getElementById('hero-video'), document.getElementById('analyst-video')];
+      var videos = [document.getElementById('hero-video')];
       var button = document.getElementById('hero-video-toggle');
       var paused = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var visible = true;

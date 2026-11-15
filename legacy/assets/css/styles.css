@@ -1691,8 +1691,9 @@ html:not(.dark) .btn-intro:hover { background: rgba(217,119,6,.14); }
 
 
 /* ══ CINEMATIC LAYER ══════════════════════════════════════════ */
-/* Animated analyst card in the hero */
+/* Portrait card in the hero */
 .hero-photo.hero-analyst::after { content: none; }
+.hero-photo img,
 .hero-photo video {
   display: block; width: 100%; height: auto; aspect-ratio: 4/5; object-fit: cover;
   border-radius: 18px; border: 1px solid rgba(255,255,255,.1);

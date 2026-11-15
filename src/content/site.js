@@ -188,7 +188,7 @@ export const CATEGORIES = [
     label: "Applications",
     title: "Agents & Streaming",
     description:
-      "An autonomous email agent built on Auto-GPT, and peer-to-peer media streaming over a local network.",
+      "An autonomous email agent built on Auto-GPT, peer-to-peer media streaming over a local network, and a custom home screen for an Android TV.",
   },
 ];
 
@@ -305,6 +305,24 @@ export const PROJECTS = [
       "Flask backend handling media requests and streaming with socket programming.",
       "Peer-to-peer sharing for fast local-network transfers.",
       "Bandwidth tuned for minimal buffering; responsive front end for phone and desktop.",
+    ],
+  },
+  {
+    id: "clean-tv",
+    cat: "apps",
+    title: "Clean TV launcher for a TCL Google TV",
+    meta: "Personal project · 2026",
+    description:
+      "A home screen I wrote for a TCL Google TV to replace the stock one, which showed promotional banners. It has a clock, a dock of the apps I use and an app grid, all driven from the remote. I also turned off the preinstalled apps I did not use, with scripts that can undo every change.",
+    tech: ["Java", "Android", "Python", "Bash"],
+    link: {
+      label: "Source on GitHub",
+      href: "https://github.com/sakthiswarup18/android-tv-clean",
+    },
+    details: [
+      "A single-activity Android launcher in plain Java, with remote-control focus handled by hand so one press moves exactly one row.",
+      "Preinstalled apps are turned off in batches through a script that refuses core Android packages and any change that would leave the TV without a home screen.",
+      "A small Python ADB client and shell scripts handle install, screenshots and restore, and every change is recorded so it can be undone.",
     ],
   },
 ];
